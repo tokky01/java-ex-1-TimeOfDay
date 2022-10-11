@@ -50,11 +50,26 @@ public class TimeOfDay {
 		this.minutesPastMidnight = minutesPastMidnight;
 	}
 	
+	/**
+	 * set the hours past midnight to the given value 
+	 * @pre hoursPastMidnight must be lower then 24
+	 * | hoursPastMidnight < 24
+	 * @post hours past midnight must be the same as the given value
+	 * | getHoursPastMidnight() < hoursPastMidnight
+	 */
 	public void setHoursPastMidnight(int hoursPastMidnight) {
 		int remainingMinutes = getRemainingMinutes();
 		this.minutesPastMidnight = hoursPastMidnight*60 + remainingMinutes;
 	}
 	
+	
+	/**
+	 * set the hours past midnight to the given value 
+	 * @pre hoursPastMidnight must be lower then 60
+	 * | RemainingMinutes < 60
+	 * @post hours past midnight must be the same as the given value
+	 * | getRemainingMinutes() < RemainingMinutes
+	 */
 	public void setRemainingMinutes(int RemainingMinutes){
 		int hours = getHoursPastMidnight();
 		this.minutesPastMidnight = hours*60 + RemainingMinutes;
