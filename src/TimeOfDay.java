@@ -12,18 +12,22 @@ public class TimeOfDay {
 	private int minutesPastMidnight;
 	
 	/**
+	 * 
+	 * this method is and example of a defensive implementation
+	 * 
 	 * Intializes this TimeOfDay with an hour and a minute variable.
-	 * @pre there hours must not be higher then 23.
-	 * | hours < 24
-	 * 
-	 * @pre the minutes must not be higher then 59.
-	 * | minutes < 59 
-	 * 
-	 * @post the minutes past midnight equals the formula. 
-	 * | getMinutesPastMidnight() == hours * 60 + minutes
+	 * @throws IllegalArgumentException | !(0 <= hours && hours <= 24)
+	 * @throws IllegalArgumentException | !(0 <= minutes && minutes <= 59)
+	 * @post | getHoursPastMidnight() == hours
+	 * @post | getRemainingMinutes() == minutes
 	 * 
 	 */
 	public TimeOfDay(int hours,int minutes) {
+		if (!(0 <= hours && hours <= 24))
+			throw new IllegalArgumentException("'hours' should be between 0 and 23");
+		if (!(0 <= minutes && minutes <= 24))
+			throw new IllegalArgumentException("'minutes' should be between 0 and 59");
+		
 		this.minutesPastMidnight = hours * 60 + minutes;	
 	}
 	
@@ -40,6 +44,9 @@ public class TimeOfDay {
 	}
 
 	/**
+	 * 
+	 * the method is an example of a contractual implementenation 
+	 * 
 	 * set the seconds past midnight to the given value 
 	 * @pre minutesPastMidnight must be lower then 1440
 	 * | minutesPastMidnight < 1440
