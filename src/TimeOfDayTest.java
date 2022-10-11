@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class TimeOfDayTest {
 	@Test
 	void test() {
-		TimeOfDay timeOfDay = new TimeOfDay(10, 25);
+		TimeOfDay timeOfDay = new TimeOfDay(25, 10);
 		assertEquals(10, timeOfDay.getRemainingMinutes());
 		assertEquals(25, timeOfDay.getHoursPastMidnight());
 		assertEquals(625, timeOfDay.getMinutesPastMidnight());
